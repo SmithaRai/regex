@@ -11,6 +11,7 @@ public class UserRegistrationValidation {
 	  private static final String EMAIL_ID_PATTERN = "^[a-zA-Z0-9_-]+(?:\\.[a-zA-Z0-9_-]+)*@[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+(?:\\.[a-zA-Z0-9_-]+)*$";
 	  private static final String PHONE_NUMBER = "^[9][1]{0,1}\\s[0-9]{10}";
 	  private static final String PASSWORD_RULE1 = "^[a-zA-Z0-9_-]{8,}$";
+	  private static final String PASSWORD_RULE2 = "^[a-zA-Z0-9_-]{8,}(?=.*[A-Z])+$";
 
 	  public boolean validateFirstName (String fname){
 	         
@@ -43,6 +44,13 @@ public class UserRegistrationValidation {
           Pattern pattern = Pattern.compile(PASSWORD_RULE1);
           return pattern.matcher(pwd_rule1).matches();
  	      }
+      
+      public boolean validatepassword_rule2 (String pwd_rule2){
+          
+          Pattern pattern = Pattern.compile(PASSWORD_RULE2);
+          return pattern.matcher(pwd_rule2).matches();
+ 	      }
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
@@ -70,6 +78,10 @@ public class UserRegistrationValidation {
 		System.out.println("ENTER PASSWORD WITH MINIMUM EIGHT CHARACTERS : ");
 		String pwd_rule1 = in.next();
 		System.out.println(entry.validatepassword_rule1(pwd_rule1));
+		
+		System.out.println("ENTER PASSWORD WITH one UPPERCASE : ");
+		String pwd_rule2 = in.next();
+		System.out.println(entry.validatepassword_rule1(pwd_rule2));
 	}
 
 }
