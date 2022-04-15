@@ -7,7 +7,8 @@ public class UserRegistrationValidation {
 	
 	
 	  private static final String FIRST_NAME_PATTERN = "^[A-Z]{1}[a-z]{3,}$";
-	  
+	  private static final String LAST_NAME_PATTERN = "^[A-Z]{1}[a-z]{3,}$";
+
 	  public boolean validateFirstName (String fname){
 	         
           Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
@@ -15,6 +16,12 @@ public class UserRegistrationValidation {
 	  
               }
 
+	  public boolean validatelastName (String lname){
+	         
+          Pattern pattern = Pattern.compile(LAST_NAME_PATTERN);
+          return pattern.matcher(lname).matches();
+	  
+              }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -27,6 +34,11 @@ public class UserRegistrationValidation {
 		System.out.println("ENTER FIRST NAME : ");
 		String fname = in.next();
 		System.out.println(entry.validateFirstName(fname));
+		
+		System.out.println("ENTER LAST NAME : ");
+		String lname = in.next();
+		System.out.println(entry.validateFirstName(lname));
+		
 		
 	}
 
