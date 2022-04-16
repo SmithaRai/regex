@@ -14,6 +14,7 @@ public class UserRegistrationValidation {
 	  private static final String PASSWORD_RULE2 = "^[a-zA-Z0-9_-]{8,}(?=.*[A-Z])+$";
 	  private static final String PASSWORD_RULE3 = "^[a-zA-Z0-9_-]{8,}[?=.*A-Z]+[?=.*0-9]+$";
 	  private static final String PASSWORD_RULE4 = "^[a-zA-Z0-9_-]{8,}[?=.*A-Z]+[?=.*0-9]+[?=.*! @#&()]{1}$";
+	  private static final String EMAIID_SAMPLES = "^[a-zA-Z.+0-9_-]+[@]{1}[a-zA-Z0-9]+[.]{1}[a-zA-Z,]{2,}[.,a-zA-Z]?$";
 
 	  public boolean validateFirstName (String fname){
 	         
@@ -64,6 +65,12 @@ public class UserRegistrationValidation {
     	    Pattern pattern = Pattern.compile(PASSWORD_RULE4);
     	    return pattern.matcher(pwd_rule4).matches();
     	  }
+      
+      public boolean validate_emailid_samples (String email_samples){
+    	    
+    	    Pattern pattern = Pattern.compile(EMAIID_SAMPLES);
+    	    return pattern.matcher(email_samples).matches();
+          }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -105,6 +112,10 @@ public class UserRegistrationValidation {
 		String pwd_rule4 = in.next();
 		System.out.println(entry.validatepassword_rule1(pwd_rule4));
 	
+		System.out.println("ENTER EMAILID SAMPLES : ");
+		String email_samples = in.next();
+		System.out.println(entry.validateFirstName(email_samples));
+		
 	}
 
 }
