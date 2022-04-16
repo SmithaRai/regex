@@ -13,6 +13,7 @@ public class UserRegistrationValidation {
 	  private static final String PASSWORD_RULE1 = "^[a-zA-Z0-9_-]{8,}$";
 	  private static final String PASSWORD_RULE2 = "^[a-zA-Z0-9_-]{8,}(?=.*[A-Z])+$";
 	  private static final String PASSWORD_RULE3 = "^[a-zA-Z0-9_-]{8,}[?=.*A-Z]+[?=.*0-9]+$";
+	  private static final String PASSWORD_RULE4 = "^[a-zA-Z0-9_-]{8,}[?=.*A-Z]+[?=.*0-9]+[?=.*! @#&()]{1}$";
 
 	  public boolean validateFirstName (String fname){
 	         
@@ -57,6 +58,12 @@ public class UserRegistrationValidation {
     	    Pattern pattern = Pattern.compile(PASSWORD_RULE3);
     	    return pattern.matcher(pwd_rule3).matches();
     	  }
+      
+      public boolean validatepassword_rule4 (String pwd_rule4){
+    	    
+    	    Pattern pattern = Pattern.compile(PASSWORD_RULE4);
+    	    return pattern.matcher(pwd_rule4).matches();
+    	  }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -93,6 +100,10 @@ public class UserRegistrationValidation {
 		System.out.println("ENTER PASSWORD WITH ATLEAST ONE NUMERIC VALUE : ");
 		String pwd_rule3 = in.next();
 		System.out.println(entry.validatepassword_rule1(pwd_rule3));
+	
+		System.out.println("ENTER PASSWORD WITH EXACTLY ONE SPECIAL CHARACTER : ");
+		String pwd_rule4 = in.next();
+		System.out.println(entry.validatepassword_rule1(pwd_rule4));
 	
 	}
 
