@@ -12,6 +12,7 @@ public class UserRegistrationValidation {
 	  private static final String PHONE_NUMBER = "^[9][1]{0,1}\\s[0-9]{10}";
 	  private static final String PASSWORD_RULE1 = "^[a-zA-Z0-9_-]{8,}$";
 	  private static final String PASSWORD_RULE2 = "^[a-zA-Z0-9_-]{8,}(?=.*[A-Z])+$";
+	  private static final String PASSWORD_RULE3 = "^[a-zA-Z0-9_-]{8,}[?=.*A-Z]+[?=.*0-9]+$";
 
 	  public boolean validateFirstName (String fname){
 	         
@@ -50,6 +51,12 @@ public class UserRegistrationValidation {
           Pattern pattern = Pattern.compile(PASSWORD_RULE2);
           return pattern.matcher(pwd_rule2).matches();
  	      }
+      
+      public boolean validatepassword_rule3 (String pwd_rule3){
+    	    
+    	    Pattern pattern = Pattern.compile(PASSWORD_RULE3);
+    	    return pattern.matcher(pwd_rule3).matches();
+    	  }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -82,6 +89,11 @@ public class UserRegistrationValidation {
 		System.out.println("ENTER PASSWORD WITH one UPPERCASE : ");
 		String pwd_rule2 = in.next();
 		System.out.println(entry.validatepassword_rule1(pwd_rule2));
+		
+		System.out.println("ENTER PASSWORD WITH ATLEAST ONE NUMERIC VALUE : ");
+		String pwd_rule3 = in.next();
+		System.out.println(entry.validatepassword_rule1(pwd_rule3));
+	
 	}
 
 }
